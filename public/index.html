@@ -3,59 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Basecamp</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="dashboard">
-        <header class="header">
-            <h1>Gerardo's Dashboard</h1>
-            <span class="time" id="clock"></span>
-        </header>
+        <!-- Google Search - Full Width -->
+        <div class="search-section">
+            <form id="google-search" action="https://www.google.com/search" method="GET" target="_blank">
+                <input type="text" name="q" placeholder="Search Google..." class="search-input">
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+        </div>
 
-        <main class="widgets">
-            <section class="widget" id="stocks">
-                <h2>Stocks</h2>
-                <div class="widget-content">
-                    <p>Loading...</p>
+        <!-- Calendar - Full Width -->
+        <section class="calendar-section" id="calendar">
+            <h2>Calendar</h2>
+            <div class="calendar-week">
+                <div class="calendar-day">
+                    <span class="day-name">Mon</span>
+                    <div class="day-events"></div>
                 </div>
-            </section>
-
-            <section class="widget" id="youtube">
-                <h2>YouTube</h2>
-                <div class="widget-content">
-                    <p>Loading...</p>
+                <div class="calendar-day">
+                    <span class="day-name">Tue</span>
+                    <div class="day-events"></div>
                 </div>
-            </section>
-
-            <section class="widget" id="twitch">
-                <h2>Twitch</h2>
-                <div class="widget-content">
-                    <p>Loading...</p>
+                <div class="calendar-day">
+                    <span class="day-name">Wed</span>
+                    <div class="day-events"></div>
                 </div>
-            </section>
-
-            <section class="widget" id="calendar">
-                <h2>Calendar</h2>
-                <div class="widget-content">
-                    <p>Loading...</p>
+                <div class="calendar-day">
+                    <span class="day-name">Thu</span>
+                    <div class="day-events"></div>
                 </div>
-            </section>
+                <div class="calendar-day">
+                    <span class="day-name">Fri</span>
+                    <div class="day-events"></div>
+                </div>
+                <div class="calendar-day">
+                    <span class="day-name">Sat</span>
+                    <div class="day-events"></div>
+                </div>
+                <div class="calendar-day">
+                    <span class="day-name">Sun</span>
+                    <div class="day-events"></div>
+                </div>
+            </div>
+        </section>
 
-            <section class="widget" id="services">
+        <!-- AI Chat - Full Width -->
+        <section class="ai-section">
+            <h2>AI Assistant</h2>
+            <div class="ai-chat">
+                <div class="ai-messages" id="ai-messages">
+                    <div class="ai-message assistant">Hi! I'm your local AI assistant. How can I help?</div>
+                </div>
+                <div class="ai-input-container">
+                    <input type="text" id="ai-input" placeholder="Ask something...">
+                    <button id="ai-send">Send</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Left Side: Twitch, Stocks, YouTube, News -->
+            <div class="content-left">
+                <!-- Twitch and Stocks Row -->
+                <div class="widgets-row">
+                    <!-- Twitch Live -->
+                    <section class="widget twitch-widget" id="twitch">
+                        <h2>Twitch Live</h2>
+                        <ul class="twitch-list">
+                            <li class="twitch-streamer">
+                                <img src="" alt="" class="streamer-avatar">
+                                <div class="streamer-info">
+                                    <span class="streamer-name">Loading...</span>
+                                    <span class="streamer-game"></span>
+                                </div>
+                                <span class="live-badge">LIVE</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Stocks -->
+                    <section class="widget stocks-widget" id="stocks">
+                        <h2>Stocks</h2>
+                        <div class="stocks-grid">
+                            <div class="stock-card">
+                                <span class="stock-symbol">AAPL</span>
+                                <div class="stock-graph">
+                                    <canvas class="stock-chart"></canvas>
+                                </div>
+                                <span class="stock-price">$185.50</span>
+                                <span class="stock-change positive">+1.2%</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- YouTube Videos -->
+                <section class="widget youtube-widget" id="youtube">
+                    <h2>YouTube</h2>
+                    <div class="youtube-grid">
+                        <a href="#" class="youtube-video">
+                            <img src="" alt="" class="video-thumbnail">
+                            <div class="video-info">
+                                <span class="video-title">Loading...</span>
+                                <span class="video-channel"></span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- News Feed -->
+                <section class="widget news-widget" id="news">
+                    <h2>News</h2>
+                    <div class="news-list">
+                        <article class="news-item">
+                            <h3 class="news-title">Loading...</h3>
+                            <p class="news-summary"></p>
+                            <span class="news-source"></span>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Side: Services Sidebar -->
+            <aside class="services-sidebar" id="services">
                 <h2>Services</h2>
-                <div class="widget-content">
-                    <p>Loading...</p>
-                </div>
-            </section>
-
-            <section class="widget" id="news">
-                <h2>News</h2>
-                <div class="widget-content">
-                    <p>Loading...</p>
-                </div>
-            </section>
-        </main>
+                <nav class="services-list">
+                    <a href="#" class="service-item">
+                        <img src="" alt="" class="service-icon">
+                        <span class="service-name">Jellyfin</span>
+                    </a>
+                    <a href="#" class="service-item">
+                        <img src="" alt="" class="service-icon">
+                        <span class="service-name">Nextcloud</span>
+                    </a>
+                    <a href="#" class="service-item">
+                        <img src="" alt="" class="service-icon">
+                        <span class="service-name">Sonarr</span>
+                    </a>
+                    <a href="#" class="service-item">
+                        <img src="" alt="" class="service-icon">
+                        <span class="service-name">Radarr</span>
+                    </a>
+                    <a href="#" class="service-item">
+                        <img src="" alt="" class="service-icon">
+                        <span class="service-name">qBittorrent</span>
+                    </a>
+                </nav>
+            </aside>
+        </div>
     </div>
 
     <script src="/js/dashboard.js"></script>
